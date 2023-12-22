@@ -18,6 +18,5 @@ jobs:
       run: |
         curl -SL "https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip" --output terraform.zip
         unzip "terraform.zip"
-        mv terraform /usr/local/bin  # Fix the path here
         terraform --version
         rm terraform.zip  # Fix the typo in the file name here
