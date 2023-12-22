@@ -20,4 +20,6 @@ jobs:
         unzip "terraform.zip"
         sudo mv terraform /usr/local/bin  # Use sudo to move to /usr/local/bin
         terraform --version
+        terraform --help
+        terraform --workspace
         rm terraform.zip  # Fix the typo in the file name here
