@@ -18,6 +18,5 @@ jobs:
     run: |
      curl -SL "https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip" --output terraform.zip
      unzip "terraform.zip"
-    mv terraform /user/local/bin
-    terraform --version
-    rm terrafrom.zip
+     terraform --version
+     rm terrafrom.zip
