@@ -6,7 +6,7 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    name: 'terraform'
+    name: 'Terraform'
  defaults:
    run:
      shell: bash
