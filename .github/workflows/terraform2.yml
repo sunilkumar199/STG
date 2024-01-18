@@ -1,0 +1,37 @@
+name: Azure VM Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-vm:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Azure CLI
+      uses: azure/setup-azure-cli@v1
+      with:
+        azcliversion: latest
+
+    - name: Login to Azure
+      run: az login --service-principal -u bc93195c-5f0b-488f-87ee-553a3607baac -p b6C8Q~HhQ1hbYSr4oectrSKt~1y_34COQy5fwcbI --tenant bc93195c-5f0b-488f-87ee-553a3607baac
+
+    - name: Create Resource Group
+      run: az group create --name MyResourceGroup --location EastUS
+
+    - name: Deploy VM
+      run: |
+        az vm create \
+          --resource-group MyResourceGroup \
+          --name giwinser \
+          --image Win2019Datacenter \
+          --admin-username githubact \
+          --admin-password Sripada@11 \
+          --size Standard_DS1_v2 \
+          --public-ip-sku Standard \
+          --nsg "" \
+          --output json
