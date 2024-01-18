@@ -18,7 +18,7 @@ jobs:
         sudo apt-get install -y azure-cli
 
     - name: Login to Azure
-      run: az login --service-principal -u bc93195c-5f0b-488f-87ee-553a3607baac -p b6C8Q~HhQ1hbYSr4oectrSKt~1y_34COQy5fwcbI --tenant bc93195c-5f0b-488f-87ee-553a3607baac-tenant <YourTenantId>
+      run: az login --service-principal -u bc93195c-5f0b-488f-87ee-553a3607baac -p b6C8Q~HhQ1hbYSr4oectrSKt~1y_34COQy5fwcbI --tenant bc93195c-5f0b-488f-87ee-553a3607baac
 
     - name: Create Resource Group
       run: az group create --name MyResourceGroup --location EastUS
