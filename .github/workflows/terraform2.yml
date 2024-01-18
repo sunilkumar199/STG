@@ -1,18 +1,21 @@
-name: Azure Login
+name: Run Azure Login with OIDC
+on: [push]
 
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  azure-login:
+jobs: 
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Azure Login
-      run: |
-        az login --service-principal -u bc93195c-5f0b-488f-87ee-553a3607baac -p b6C8Q~HhQ1hbYSr4oectrSKt~1y_34COQy5fwcbI --tenant bc93195c-5f0b-488f-87ee-553a3607baac
-        az account set --subscription f5ef5936-e3ba-4200-ad92-bd9832b5a0ba
+      - name: Azure login
+        uses: azure/login@v1
+        with:
+          client-id: bc93195c-5f0b-488f-87ee-553a3607baac
+          client-secret: b6C8Q~HhQ1hbYSr4oectrSKt~1y_34COQy5fwcbI
+          tenant-id: bc93195c-5f0b-488f-87ee-553a3607baac
+          subscription-id: f5ef5936-e3ba-4200-ad92-bd9832b5a0ba
+  
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az account show
