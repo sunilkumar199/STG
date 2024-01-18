@@ -18,7 +18,10 @@ jobs:
         sudo apt-get install -y azure-cli
 
     - name: Login to Azure
-      run: az login --service-principal -u bc93195c-5f0b-488f-87ee-553a3607baac -p b6C8Q~HhQ1hbYSr4oectrSKt~1y_34COQy5fwcbI --tenant bc93195c-5f0b-488f-87ee-553a3607baac
+      run: az login --service-principal -u bc93195c-5f0b-488f-87ee-553a3607baac -p b6C8Q~HhQ1hbYSr4oectrSKt~1y_34COQy5fwcbI --tenant bc93195c-5f0b-488f-87ee-553a3607baac>
+
+    - name: Set Azure subscription
+      run: az account set --subscription f5ef5936-e3ba-4200-ad92-bd9832b5a0ba
 
     - name: Create Resource Group
       run: az group create --name MyResourceGroup --location EastUS
