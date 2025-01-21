@@ -1,0 +1,53 @@
+# Variables
+$sophosInstallerUrl = "https://your-sophos-installer-url/SophosSetup.exe"  # Change to your Sophos installer URL
+$localInstallerPath = "C:\Temp\SophosSetup.exe"  # Path to save the installer
+$exclusionPath = "C:\Windows\ServiceProfiles\ServiceAccount\AppData\Local\Microsoft\On-premises data gateway"  # Exclusion path
+$logFilePath = "C:\Temp\SophosInstallationLog.txt"  # Log file path for installation progress
+
+# Step 1: Download the Sophos Installer (if URL is provided)
+Write-Host "Downloading Sophos installer..."
+Invoke-WebRequest -Uri $sophosInstallerUrl -OutFile $localInstallerPath
+
+# Step 2: Install Sophos
+Write-Host "Installing Sophos..."
+Start-Process -Wait -FilePath $localInstallerPath -ArgumentList "--quiet"
+
+# Step 3: Check if the installation was successful
+if (Test-Path "C:\Program Files\Sophos\Sophos Anti-Virus\SophosUI.exe") {
+    Write-Host "Sophos installed successfully."
+} else {
+    Write-Host "Sophos installation failed. Please check the logs."
+    exit
+}
+
+# Step 4: Add Exclusion for the specified directory
+Write-Host "Configuring exclusions for $exclusionPath..."
+# Add the exclusion to the registry (if applicable for your version of Sophos)
+$exclusionRegistryKey = "HKLM:\Software\Sophos\Endpoint\ScanExclusions"
+$exclusionValue = $exclusionPath
+
+# Check if the registry key exists, then add the exclusion
+if (Test-Path $exclusionRegistryKey) {
+    Set-ItemProperty -Path $exclusionRegistryKey -Name "Paths" -Value $exclusionValue
+    Write-Host "Exclusion added successfully."
+} else {
+    Write-Host "Sophos exclusion registry key not found. Exclusions may need to be managed via Sophos Central."
+}
+
+# Step 5: Restart Sophos to apply changes
+Write-Host "Restarting Sophos service..."
+Restart-Service -Name "SAVService"
+
+# Step 6: Verify the exclusion has been applied (optional check)
+Write-Host "Verifying exclusions..."
+$exclusionCheck = Get-ItemProperty -Path $exclusionRegistryKey -Name "Paths" 
+Write-Host "Exclusions: $exclusionCheck"
+
+# Step 7: Log Installation Status
+Write-Host "Logging installation status..."
+"Installation completed at: $(Get-Date)" | Out-File -FilePath $logFilePath -Append
+"Exclusion Path: $exclusionPath" | Out-File -FilePath $logFilePath -Append
+Write-Host "Log file created at: $logFilePath"
+
+# Final Message
+Write-Host "Sophos installation and configuration complete."
