@@ -1,0 +1,166 @@
+REM ***********************ON AZURE, ALPHABETICAL; don't forget to add tfor files delete scripts******************
+REM AFC = Aids Foundation Chicago to FTP folder
+ForFiles /p "F:\FTP_Root\AFC\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\AFC_Prod" "F:\FTP_Root\AFC\DBBackups" /MAXAGE:1 
+
+REM ARCSM = ARC of Southen Maryland
+ForFiles /p "F:\FTP_Root\ARCSM\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\ARCSM_Prod" "F:\FTP_Root\ARCSM\DBBackups" /MAXAGE:1
+ 
+REM CatholicCharitiesAtlanta_Prod to FTP
+ForFiles /p "F:\FTP_Root\CatholicCharitiesAtlanta\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\CatholicCharitiesAtlanta_Prod" "F:\FTP_Root\CatholicCharitiesAtlanta\DBBackups" /MAXAGE:1 
+
+REM SOH_Prod to FTP
+ForFiles /p "F:\FTP_Root\StarOfHope\DBbackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\SOH_Prod" "F:\FTP_Root\StarOfHope\DBbackups" /MAXAGE:1 
+
+REM CCR = Child Care Resources
+ForFiles /p "F:\FTP_Root\ChildCareResources\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\CCR_Prod" "F:\FTP_Root\ChildCareResources\DBBackups" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\CCEH\Snapshots" /s /d -8 /m *.* /c "cmd /c del @path @file"
+
+REM CCR_Prod to FTP
+REM Robocopy "\\10.10.10.200\sql\CW\Prod\Full\CCR_Prod" "D:\FTP Root\ChildCareResources\dbbackups" /MAXAGE:1
+
+ForFiles /p "F:\FTP_Root\DevelopmentalPathways\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\DevelopmentalPathways_Prod" "F:\FTP_Root\DevelopmentalPathways\DBBackups" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\EpiscopalCommunityServices\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\EpiscopalCommunityServices_Prod" "F:\FTP_Root\EpiscopalCommunityServices\DBBackups" /MAXAGE:1 
+
+REM FirstSourceSolutions_Prod to FTP PER Hannah DeGrucio on 12/16/2022, they only retrieve the "File Exports" from Steve's custom process anymore. So I removed this task. 
+ForFiles /p "F:\FTP_Root\FirstSourceSolutions\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+REM Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\FULL\FirstSourceSolutions_Prod" "F:\FTP_Root\FirstSourceSolutions\DBBackups" /MAXAGE:1 
+
+REM moved to the JustFortuneBakToFTP.bak task
+REM ForFiles /p "F:\FTP_Root\FortuneSociety\DBBackups" /s /d -4 /m *.bak /c "cmd /c del @path @file"
+REM ForFiles /p "F:\FTP_Root\FortuneSociety\DBBackups_Train" /s /d -4 /m *.bak /c "cmd /c del @path @file"
+REM Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\FortuneSociety_Prod" "F:\FTP_Root\FortuneSociety\dbbackups" /MAXAGE:1 
+REM Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Train\FULL\FortuneSociety_Train" "F:\FTP_Root\FortuneSociety\dbbackups_train" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\GICT\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\GICT_Prod" "F:\FTP_Root\GICT\DBBackups" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\GCCVA\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\GCCVA_Prod" "F:\FTP_Root\GCCVA\DBBackups" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\GoodData\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\GoodData_Prod" "F:\FTP_Root\GoodData\DBBackups" /MAXAGE:1 
+
+
+ForFiles /p "F:\FTP_Root\GoodwillIndustriesInternational\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\Goodwill_Industries_International_Prod" "F:\FTP_Root\GoodwillIndustriesInternational\DBBackups" /MAXAGE:1 
+
+REM GoodwillOlympics_Prod to FTP
+ForFiles /p "F:\FTP_Root\GoodwillOlympics\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\GoodwillOlympics_Prod" "F:\FTP_Root\GoodwillOlympics\DBBackups" /MAXAGE:1 
+
+REM GoodwillNorthCentralTexas formerly Goodwill Fort Worth GWFW_Prod 
+ForFiles /p "F:\FTP_Root\GoodwillNorthCentralTexas\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\GWFW_Prod" "F:\FTP_Root\GoodwillNorthCentralTexas\DBBackups" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\GoodwillTulsa\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\GoodwillTulsa_Prod" "F:\FTP_Root\GoodwillTulsa\DBBackups" /MAXAGE:1 
+
+REM GWSEGA_Prod to FTP
+ForFiles /p "F:\FTP_Root\GoodwillSEGA\DBbackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\GWSEGA_Prod" "F:\FTP_Root\GoodwillSEGA\DBbackups" /MAXAGE:1 
+
+REM GWSR to FTP folder - FTP Push
+REM ForFiles /p "F:\FTP_Root\GWSR\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file" They don't have access to the FTP server, I now push right from the storage account
+REM Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\GWSR_Prod" "F:\FTP_Root\GWSR\dbbackups" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\InstituteOnAging\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\InstituteOnAging_Prod" "F:\FTP_Root\InstituteOnAging\DBBackups" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\PhoenixRescueMission\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\PRM_Prod" "F:\FTP_Root\PhoenixRescueMission\DBBackups" /MAXAGE:1 
+
+REM PRM_Prod to FTP
+REM Robocopy "\\10.10.10.200\sql\CW\Prod\Full\PRM_Prod" "D:\FTP Root\Phoenix_Rescue_Mission\dbbackups" /MAXAGE:1 
+
+REM UGMTC to FTP folder
+ForFiles /p "F:\FTP_Root\UGM\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\UGM_Prod" "F:\FTP_Root\UGM\DBBackups" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\WHA\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\WHA_Prod" "F:\FTP_Root\WHA\DBBackups" /MAXAGE:1 
+
+ForFiles /p "F:\FTP_Root\YouthGuidance\DBBackups" /s /d -1 /m *.* /c "cmd /c del @path @file"
+Robocopy "\\cswprdstgeus001.file.core.windows.net\azfssqlbak-001\DBBackups\Prod\FULL\YouthGuidance_Prod" "F:\FTP_Root\YouthGuidance\DBBackups" /MAXAGE:1 
+
+
+REM ***********************NOT YET ON AZURE, ALPHABETICAL******************
+
+
+
+
+
+REM ForFiles /p "D:\FTP Root\DBeverly" /s /d -4 /m *.* /c "cmd /c del @path @file"
+
+REM ForFiles /p "D:\FTP Root\CCEH" /d -4 /m *.zip /c "cmd /c del @path @file"
+
+
+REM FortBend_Prod to FTP
+REM Robocopy "\\10.10.10.200\sql\CW\Prod\Full\FortBend_Prod" "D:\FTP Root\FortBend\dbbackups" /MAXAGE:1 
+
+REM GoodData_Prod to FTP
+REM Robocopy "\\10.10.10.195\DBBackups\CWSQL07\FULL\GoodData_Prod" "D:\FTP Root\GING\dbbackups" /MAXAGE:1 
+
+
+
+
+
+
+
+REM GWSV_Prod to FTP
+REM Robocopy "\\10.10.10.200\sql\CW\Prod\Full\GWSV_Prod" "D:\FTP Root\GWSV\dbbackups" /MAXAGE:1 
+
+
+
+REM NYU Slumber to FTP folder
+REM ForFiles /p "D:\FTP Root\NYUSlumber\DBBackups" /s /d -1 /m *.bak /c "cmd /c del @path @file"
+REM ForFiles /p "D:\FTP Root\NYUSlumber_Meters" /s /d -5 /c "cmd /c del @path @file"
+REM Robocopy "\\10.10.10.200\sql\CW\Prod\Full\NYU_Slumber_Prod" "D:\FTP Root\NYUSlumber\DBBackups" /MAXAGE:1 
+
+REM ForFiles /p "D:\FTP Root\Paparao" /s /d -4 /m *.* /c "cmd /c del @path @file"
+
+
+REM Clean RNekkanti BAK Files older than 4 days
+REM ForFiles /p "D:\FTP Root\RNekkanti" /s /d -4 /m *.* /c "cmd /c del @path @file"
+
+REM Send Midsouth Backup file -Moved to separate Process
+REM "C:\Program Files (x86)\WinSCP\Automation\Midsouth_Automated_PUT_2.bat"
+
+REM United Way Midsouth to FTP folder - FTP Push
+REM Robocopy "\\10.10.10.200\sql\CW\Prod\Full\UnitedWayMidSouth_Prod" "D:\FTP Root\Midsouth\DBBackups" /MAXAGE:1 
+
+REM VOAMI_Prod to FTP
+REM Robocopy "\\10.10.10.200\sql\CW\Prod\Full\VOAMI_Prod" "D:\FTP Root\VolunteersOfAmericaMI\dbbackups" /MAXAGE:1 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
